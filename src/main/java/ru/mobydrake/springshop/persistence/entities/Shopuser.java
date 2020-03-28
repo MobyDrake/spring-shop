@@ -33,7 +33,7 @@ public class Shopuser extends PersistableEntity {
             inverseJoinColumns = @JoinColumn(name = "role"))
     private Collection<Role> roles;
 
-    @OneToMany(mappedBy = "shopuser")
-    private List<Purchase> purchases;
+//    @OneToMany(mappedBy = "shopuser")
+//    private List<Purchase> purchases;
 
 }
