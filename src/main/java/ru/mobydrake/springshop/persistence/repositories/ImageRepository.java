@@ -1,10 +1,10 @@
-package ru.mobydrke.springshop.persistence.repositories;
+package ru.mobydrake.springshop.persistence.repositories;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import ru.mobydrke.springshop.persistence.entities.Image;
+import ru.mobydrake.springshop.persistence.entities.Image;
 
 
 import java.util.UUID;

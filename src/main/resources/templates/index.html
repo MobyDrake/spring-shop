@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="product, iterator : ${products}">
-                        <!--/*@thymesVar id="product" type="ru.geekbrains.supershop.persistence.entities.Product"*/-->
+                        <!--/*@thymesVar id="product" type="ru.mobydrake.springshop.persistence.entities.Product"*/-->
                         <span th:if="${product.available}">
                             <td th:text="${iterator.index + 1}"/>
                             <td>
@@ -48,7 +48,7 @@
             <form th:action="@{/}" method="get">
                 <select name="category">
                     <option th:text="'Не выбрано'" th:value="null"/>
-                    <option th:each="category : ${T(ru.geekbrains.supershop.persistence.entities.enums.ProductCategory).values()}"
+                    <option th:each="category : ${T(ru.mobydrake.springshop.persistence.entities.enums.ProductCategory).values()}"
                             th:value="${category.ordinal()}"
                             th:text="${category.name}"
                     />

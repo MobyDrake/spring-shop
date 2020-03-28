@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.controlles;
+package ru.mobydrake.springshop.controlles;
 
 import lombok.RequiredArgsConstructor;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.mobydrke.springshop.services.ProductService;
+import ru.mobydrake.springshop.services.ProductService;
 
 
 @Controller

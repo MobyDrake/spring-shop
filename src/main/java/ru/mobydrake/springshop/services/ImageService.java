@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.services;
+package ru.mobydrake.springshop.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
-import ru.mobydrke.springshop.persistence.repositories.ImageRepository;
+import ru.mobydrake.springshop.persistence.repositories.ImageRepository;
 
 
 import javax.imageio.ImageIO;

@@ -1,12 +1,12 @@
-package ru.mobydrke.springshop.services;
+package ru.mobydrake.springshop.services;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
-import ru.mobydrke.springshop.exception.ProductNotFoundException;
-import ru.mobydrke.springshop.persistence.entities.Product;
-import ru.mobydrke.springshop.persistence.entities.enums.ProductCategory;
-import ru.mobydrke.springshop.persistence.repositories.ProductRepository;
+import ru.mobydrake.springshop.exception.ProductNotFoundException;
+import ru.mobydrake.springshop.persistence.entities.Product;
+import ru.mobydrake.springshop.persistence.entities.enums.ProductCategory;
+import ru.mobydrake.springshop.persistence.repositories.ProductRepository;
 
 
 import java.util.List;

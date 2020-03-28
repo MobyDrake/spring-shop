@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.persistence.entities.utils;
+package ru.mobydrake.springshop.persistence.entities.utils;
 
 import lombok.Data;
 

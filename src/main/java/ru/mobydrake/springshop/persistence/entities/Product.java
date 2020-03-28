@@ -1,9 +1,9 @@
-package ru.mobydrke.springshop.persistence.entities;
+package ru.mobydrake.springshop.persistence.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import ru.mobydrke.springshop.persistence.entities.enums.ProductCategory;
-import ru.mobydrke.springshop.persistence.entities.utils.PersistableEntity;
+import ru.mobydrake.springshop.persistence.entities.enums.ProductCategory;
+import ru.mobydrake.springshop.persistence.entities.utils.PersistableEntity;
 
 import javax.persistence.*;
 import java.util.Date;

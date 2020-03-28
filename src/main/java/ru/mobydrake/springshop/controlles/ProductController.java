@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.controlles;
+package ru.mobydrake.springshop.controlles;
 
 import lombok.RequiredArgsConstructor;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.mobydrke.springshop.exception.ProductNotFoundException;
-import ru.mobydrke.springshop.services.ImageService;
-import ru.mobydrke.springshop.services.ProductService;
+import ru.mobydrake.springshop.exception.ProductNotFoundException;
+import ru.mobydrake.springshop.services.ImageService;
+import ru.mobydrake.springshop.services.ProductService;
 
 
 import javax.imageio.ImageIO;

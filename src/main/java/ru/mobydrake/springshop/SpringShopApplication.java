@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop;
+package ru.mobydrake.springshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

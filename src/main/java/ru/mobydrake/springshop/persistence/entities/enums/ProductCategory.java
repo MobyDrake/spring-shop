@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.persistence.entities.enums;
+package ru.mobydrake.springshop.persistence.entities.enums;
 
 import lombok.Getter;
 

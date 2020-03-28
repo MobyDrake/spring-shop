@@ -1,4 +1,4 @@
-package ru.mobydrke.springshop.exception;
+package ru.mobydrake.springshop.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
