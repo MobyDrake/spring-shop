@@ -23,7 +23,7 @@ public class ShopController {
 
         //TODO сделать фильтр, который будет выводить фильтровать продукты по доступности. Выводить все продукты, но при этом указывать какие из них в наличие, а какие нет.
 
-        model.addAttribute("cart", cart.getCartRecords());
+        model.addAttribute("cart", cart);
         model.addAttribute("products", productService.findAll(category));
         return "index";
     }

@@ -57,6 +57,10 @@ public class Cart implements Serializable {
         }
     }
 
+    public int scale() {
+        return  cartRecords.stream().mapToInt(CartRecord::getQuantity).sum();
+    }
+
     private void recalculatePrice() {
         price = 0.0;
         cartRecords.forEach(cartRecord -> price = price + cartRecord.getPrice());
