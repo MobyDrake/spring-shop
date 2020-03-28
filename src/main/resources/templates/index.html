@@ -12,6 +12,10 @@
                 <h1>Super Shop</h1>
             </div>
 
+            <div class="col-sm">
+                <a class="nav-link" th:href="@{/cart}" th:text="CART + '(' + ${cart.size() + ')'}">CART</a>
+            </div>
+
             <table class="table table-hover">
                 <thead class="thead-dark">
                 <tr>
@@ -39,6 +43,14 @@
                             <td th:text="${product.description}"/>
                             <td th:text="${product.price}"/>
                             <td th:text="${#dates.format(product.added, 'dd-MM-yyyy')}"/>
+                            <td>
+<!--                                <div sec:authorize="isAuthenticated()">-->
+                                    <a th:href="@{'/cart/add/' + ${product.id}}">
+                                        Add to cart
+<!--                                        <img th:src="@{'/products/images/cart.png'}" alt="" width="30px" height="30px" />-->
+                                    </a>
+<!--                                </div>-->
+                            </td>
                         </span>
                     </tr>
                 </tbody>
