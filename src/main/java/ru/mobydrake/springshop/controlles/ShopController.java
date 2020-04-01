@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.mobydrake.springshop.beans.Cart;
 import ru.mobydrake.springshop.services.ProductService;
 
 
@@ -14,6 +15,7 @@ import ru.mobydrake.springshop.services.ProductService;
 @RequiredArgsConstructor
 public class ShopController {
 
+    private final Cart cart;
     private final ProductService productService;
 
     @GetMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
@@ -21,6 +23,7 @@ public class ShopController {
 
         //TODO сделать фильтр, который будет выводить фильтровать продукты по доступности. Выводить все продукты, но при этом указывать какие из них в наличие, а какие нет.
 
+        model.addAttribute("cart", cart);
         model.addAttribute("products", productService.findAll(category));
         return "index";
     }
