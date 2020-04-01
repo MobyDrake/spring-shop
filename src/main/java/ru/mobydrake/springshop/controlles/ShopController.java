@@ -5,10 +5,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.mobydrake.springshop.beans.Cart;
 import ru.mobydrake.springshop.services.ProductService;
+
+import java.security.Principal;
 
 
 @Controller
@@ -26,6 +29,22 @@ public class ShopController {
         model.addAttribute("cart", cart);
         model.addAttribute("products", productService.findAll(category));
         return "index";
+    }
+
+    @GetMapping("/admin")
+    public String adminPage(Model model, @CookieValue(value = "data", required = false) String data, Principal principal) {
+
+        if (principal == null) {
+            return "redirect:/";
+        }
+
+        if (data != null) {
+            System.out.println(data);
+        }
+
+        model.addAttribute("products", productService.findAll(null));
+
+        return "admin";
     }
 
 }

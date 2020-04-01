@@ -6,11 +6,12 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.mobydrake.springshop.exception.ProductNotFoundException;
+import ru.mobydrake.springshop.exception.UnsupportedMediaTypeException;
+import ru.mobydrake.springshop.persistence.entities.Image;
+import ru.mobydrake.springshop.persistence.entities.pojo.ProductPojo;
 import ru.mobydrake.springshop.services.ImageService;
 import ru.mobydrake.springshop.services.ProductService;
 
@@ -48,6 +49,12 @@ public class ProductController {
         } catch (IOException e) {
             throw new RuntimeException();
         }
+    }
+
+    @PostMapping
+    public String addOne(@RequestParam("image") MultipartFile image, ProductPojo productPojo) throws IOException, UnsupportedMediaTypeException {
+        Image img = imageService.uploadImage(image, productPojo.getTitle());
+        return productService.save(productPojo, img);
     }
 
 }

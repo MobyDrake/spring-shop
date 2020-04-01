@@ -31,7 +31,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <select name="category" class="form-control">
-                                <option th:each="category : ${T(ru.geekbrains.supershop.persistence.entities.enums.ProductCategory).values()}"
+                                <option th:each="category : ${T(ru.mobydrake.springshop.persistence.entities.enums.ProductCategory).values()}"
                                         th:value="${category}"
                                         th:text="${category.name}">
                                 </option>
