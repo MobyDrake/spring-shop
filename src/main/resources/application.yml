@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/spring-shop
+    url: jdbc:postgresql://localhost:5432/supershop
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: postgres
