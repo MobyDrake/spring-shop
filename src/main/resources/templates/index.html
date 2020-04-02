@@ -79,8 +79,7 @@
                             <td>
                                 <div sec:authorize="isAuthenticated()">
                                     <a th:href="@{'/cart/add/' + ${product.id}}">
-                                        Add to cart
-<!--                                        <img th:src="@{'/products/images/cart.png'}" alt="" width="30px" height="30px" />-->
+                                        <img th:src="@{'/products/images/cart.png'}" alt="" width="30px" height="30px" />
                                     </a>
                                 </div>
                             </td>

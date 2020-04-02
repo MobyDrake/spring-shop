@@ -9,11 +9,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.mobydrake.springshop.persistence.entities.Role;
 import ru.mobydrake.springshop.persistence.entities.Shopuser;
-import ru.mobydrake.springshop.persistence.repositories.RoleRepository;
+import ru.mobydrake.springshop.persistence.entities.enums.Role;
 import ru.mobydrake.springshop.persistence.repositories.ShopuserRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 public class ShopuserService implements UserDetailsService {
 
     private final ShopuserRepository shopuserRepository;
-    private final RoleRepository roleRepository;
 
     public Shopuser findByPhone(String phone) {
         return shopuserRepository.findOneByPhone(phone);
@@ -39,11 +38,11 @@ public class ShopuserService implements UserDetailsService {
         if (shopuser == null) {
             throw new UsernameNotFoundException("Invalid username or password");
         }
-        return new User(shopuser.getPhone(), shopuser.getPassword(), mapRolesToAuthorities(shopuser.getRoles()));
+        return new User(shopuser.getPhone(), shopuser.getPassword(), mapRolesToAuthorities(shopuser.getRole()));
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Role role) {
+        return role != null ? new ArrayList<GrantedAuthority>() {{ add((GrantedAuthority) role::name); }} : new ArrayList<>();
     }
 
     public boolean isUserExist(String phone) {

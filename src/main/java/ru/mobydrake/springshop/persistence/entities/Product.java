@@ -1,7 +1,6 @@
 package ru.mobydrake.springshop.persistence.entities;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import ru.mobydrake.springshop.persistence.entities.enums.ProductCategory;
 import ru.mobydrake.springshop.persistence.entities.utils.PersistableEntity;
 
@@ -11,6 +10,9 @@ import java.util.Date;
 
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class Product extends PersistableEntity {
 

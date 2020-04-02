@@ -11,6 +11,7 @@
     <body>
         <div class="container">
             <h1>Профиль</h1>
+            <a th:href="@{/}">Home</a>
             <h5 th:text="'Name: ' + ${shopuser.firstName} + ' ' + ${shopuser.lastName}" />
             <h5 th:text="'Phone: ' + ${shopuser.phone}" />
         </div>
