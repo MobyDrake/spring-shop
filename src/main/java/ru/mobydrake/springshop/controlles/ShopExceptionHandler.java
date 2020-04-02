@@ -17,8 +17,6 @@ import ru.mobydrake.springshop.exception.WrongCaptchaCodeException;
 @ControllerAdvice
 public class ShopExceptionHandler {
 
-    // TODO ДЗ - оформить страницу ошибки 404
-
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ProductNotFoundException.class)
     public String handleProductNotFoundException(final ProductNotFoundException ex, Model model) {

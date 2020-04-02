@@ -46,8 +46,6 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String getOneProduct(Model model, @PathVariable String id) throws ProductNotFoundException {
-
-        // TODO ДЗ - утилита, которая будет проверять UUID
         Product product = productService.findOneById(UUID.fromString(id));
         List<Review> reviews = reviewService.getReviewsByProduct(product).orElse(new ArrayList<>());
         model.addAttribute("product", product);
@@ -83,7 +81,7 @@ public class ProductController {
                     .commentary(reviewDTO.getCommentary())
                     .product(product)
                     .shopuser(shopuser)
-                    .build();
+                .build();
 
             reviewService.save(review);
             return "redirect:/products/" + product.getId();
