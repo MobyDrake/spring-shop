@@ -26,7 +26,7 @@ public class ProductService {
 
     public Product findOneById(UUID uuid) throws ProductNotFoundException {
         return productRepository.findById(uuid).orElseThrow(
-            () -> new ProductNotFoundException("Oops! Product " + uuid + " wasn't found!")
+            () -> new ProductNotFoundException("Oops! Product wasn't found!")
         );
     }
 
