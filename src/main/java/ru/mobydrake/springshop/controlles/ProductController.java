@@ -15,8 +15,8 @@ import ru.mobydrake.springshop.persistence.entities.Image;
 import ru.mobydrake.springshop.persistence.entities.Product;
 import ru.mobydrake.springshop.persistence.entities.Review;
 import ru.mobydrake.springshop.persistence.entities.Shopuser;
-import ru.mobydrake.springshop.persistence.entities.pojo.ProductPojo;
-import ru.mobydrake.springshop.persistence.entities.pojo.ReviewPojo;
+import ru.mobydrake.springshop.persistence.entities.pojo.ProductDTO;
+import ru.mobydrake.springshop.persistence.entities.pojo.ReviewDTO;
 import ru.mobydrake.springshop.services.ImageService;
 import ru.mobydrake.springshop.services.ProductService;
 import ru.mobydrake.springshop.services.ReviewService;
@@ -67,20 +67,20 @@ public class ProductController {
     }
 
     @PostMapping
-    public String addOne(@RequestParam("image") MultipartFile image, ProductPojo productPojo) throws IOException, UnsupportedMediaTypeException {
-        Image img = imageService.uploadImage(image, productPojo.getTitle());
-        return productService.save(productPojo, img);
+    public String addOne(@RequestParam("image") MultipartFile image, ProductDTO productDTO) throws IOException, UnsupportedMediaTypeException {
+        Image img = imageService.uploadImage(image, productDTO.getTitle());
+        return productService.save(productDTO, img);
     }
 
     @PostMapping("/reviews")
-    public String addReview(ReviewPojo reviewPojo, HttpSession session, Principal principal) throws ProductNotFoundException, WrongCaptchaCodeException {
+    public String addReview(ReviewDTO reviewDTO, HttpSession session, Principal principal) throws ProductNotFoundException, WrongCaptchaCodeException {
 
-        if (reviewPojo.getCaptchaCode().equals(session.getAttribute("captchaCode"))) {
-            Product product = productService.findOneById(reviewPojo.getProductId());
+        if (reviewDTO.getCaptchaCode().equals(session.getAttribute("captchaCode"))) {
+            Product product = productService.findOneById(reviewDTO.getProductId());
             Shopuser shopuser = shopuserService.findByPhone(principal.getName());
 
             Review review = Review.builder()
-                    .commentary(reviewPojo.getCommentary())
+                    .commentary(reviewDTO.getCommentary())
                     .product(product)
                     .shopuser(shopuser)
                     .build();
