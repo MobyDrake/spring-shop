@@ -14,8 +14,8 @@
                 <h1>Admin Page</h1>
             </div>
 
+            <a th:href="@{/}">Home</a>
             <div class="container" sec:authorize="hasRole('ADMIN')">
-
                 <form action="#" th:action="@{/products}" method="POST" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group col-md-3">
