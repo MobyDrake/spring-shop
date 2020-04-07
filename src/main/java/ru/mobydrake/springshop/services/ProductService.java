@@ -9,7 +9,7 @@ import ru.mobydrake.springshop.exception.ProductNotFoundException;
 import ru.mobydrake.springshop.persistence.entities.Image;
 import ru.mobydrake.springshop.persistence.entities.Product;
 import ru.mobydrake.springshop.persistence.entities.enums.ProductCategory;
-import ru.mobydrake.springshop.persistence.entities.pojo.ProductPojo;
+import ru.mobydrake.springshop.persistence.entities.pojo.ProductDTO;
 import ru.mobydrake.springshop.persistence.repositories.ProductRepository;
 
 
@@ -26,7 +26,7 @@ public class ProductService {
 
     public Product findOneById(UUID uuid) throws ProductNotFoundException {
         return productRepository.findById(uuid).orElseThrow(
-            () -> new ProductNotFoundException("Oops! Product " + uuid + " wasn't found!")
+            () -> new ProductNotFoundException("Oops! Product wasn't found!")
         );
     }
 
@@ -35,15 +35,15 @@ public class ProductService {
     }
 
     @Transactional
-    public String save(ProductPojo productPogo, Image image) {
+    public String save(ProductDTO productDTO, Image image) {
 
         Product product = Product.builder()
                 .added(new Date())
-                .title(productPogo.getTitle())
-                .description(productPogo.getDescription())
-                .price(productPogo.getPrice())
-                .available(productPogo.isAvailable())
-                .category(productPogo.getCategory())
+                .title(productDTO.getTitle())
+                .description(productDTO.getDescription())
+                .price(productDTO.getPrice())
+                .available(productDTO.isAvailable())
+                .category(productDTO.getCategory())
                 .image(image)
                 .build();
 

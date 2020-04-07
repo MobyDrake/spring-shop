@@ -17,6 +17,8 @@ public class Review extends PersistableEntity {
 
     private String commentary;
 
+    private boolean approved;
+
     @ManyToOne
     @JoinColumn(name = "shopuser")
     private Shopuser shopuser;

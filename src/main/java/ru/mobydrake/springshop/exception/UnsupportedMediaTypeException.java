@@ -12,4 +12,5 @@ public class UnsupportedMediaTypeException extends Exception {
         super(message);
     }
 
+
 }
